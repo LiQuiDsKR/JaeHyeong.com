@@ -2,3 +2,5 @@
 user/
 # 사용자 건의사항 데이터 (IP 포함)
 data/suggestions.json
+# 서버 관리자 비밀번호 및 웹 시크릿 키
+.env
