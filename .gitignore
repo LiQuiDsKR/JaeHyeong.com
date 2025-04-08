@@ -1,0 +1,4 @@
+# banlist.json을 비롯한 개인정보
+user/
+# 사용자 건의사항 데이터 (IP 포함)
+data/suggestions.json
