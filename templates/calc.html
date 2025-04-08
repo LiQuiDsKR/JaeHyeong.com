@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- ############### Google tag (gtag.js) ############### -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWT0T3SGHL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NWT0T3SGHL');
+    </script>
+    <!-- ############### Google tag (gtag.js) ############### -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/darkmode.css') }}">
+
+    <!-- 여기에 추가적인 스타일시트나 스크립트를 넣을 수 있습니다 -->
+</head>
+
+<meta property="og:title" content="재형닷컴 - 계산기">
+<meta property="og:description" content="마피아42 인게임 시스템과 관련된 여러가지 계산을 도와드려요!">
+<meta property="og:image" content="{{ og_image }}">
+
+<body>
+    {% include 'common/header.html' %}
+    
+    <div class="container">
+        <h1>우체통 계산기</h1>
+
+        <h5 class="mt-5">우체통 확장 비용 계산</h5>
+        <br>
+        <form id="totalCostForm">
+            <div class="form-group">
+                <label for="currentSlots">현재 우체통 슬롯 수:</label>
+                <input type="number" class="form-control" id="currentSlots" required>
+            </div>
+            <div class="form-group">
+                <label for="targetSlots">목표 우체통 슬롯 수:</label>
+                <input type="number" class="form-control" id="targetSlots" required>
+            </div>
+            <div class="form-group">
+                <label for="hermesBags">헤르메스의 엽서가방 개수:</label>
+                <input type="number" class="form-control" id="hermesBags">
+            </div>
+            <div class="form-group">
+                <label for="exchangeRate">환율 :</label>
+                <input type="number" class="form-control" id="exchangeRate" required>
+            </div>
+            <button type="submit" class="btn btn-primary">계산</button>
+        </form>
+        <div id="result" class="mt-3"></div>
+
+        <h5 class="mt-5">6티어 카드 계산기</h5>
+        <br>
+        <form id="tierCardForm">
+            <div class="form-group">
+                <label for="tier3Cards">현재 3티어 카드 개수:</label>
+                <input type="number" class="form-control" id="tier3Cards" required>
+            </div>
+            <div class="form-group">
+                <label for="tier4Cards">현재 4티어 카드 개수:</label>
+                <input type="number" class="form-control" id="tier4Cards" required>
+            </div>
+            <div class="form-group">
+                <label for="tier5Cards">현재 5티어 카드 개수:</label>
+                <input type="number" class="form-control" id="tier5Cards" required>
+            </div>
+            <button type="submit" class="btn btn-primary">계산</button>
+        </form>
+        <div id="cardResult" class="mt-3"></div>
+        <h5 class="mt-5">출석 보상 계산기</h5>
+        <br>
+        <form id="attendanceForm">
+            <div class="form-group">
+                <label for="fame">명성:</label>
+                <input type="number" class="form-control" id="fame" required>
+            </div>
+            <div class="form-group">
+                <label for="guildRank">길드 등급:</label>
+                <select class="form-control" id="guildRank">
+                    <option value="0">길드 없음</option>
+                    <option value="1">우드 길드</option>
+                    <option value="2">브론즈 길드</option>
+                    <option value="3">실버 길드</option>
+                    <option value="4">골드 길드</option>
+                    <option value="5" selected>플래티넘 길드</option>
+                    <option value="6">마스터 길드</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="buildingLevel">길드 건물 레벨:</label>
+                <select class="form-control" id="buildingLevel">
+                    <option value="0">0 레벨</option>
+                    <option value="1">1 레벨</option>
+                    <option value="2">2 레벨</option>
+                    <option value="3">3 레벨</option>
+                    <option value="4">4 레벨</option>
+                    <option value="5">5 레벨</option>
+                    <option value="6" selected>6 레벨</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fameEffect">유명세 효과:</label>
+                <input type="checkbox" id="fameEffect" checked>
+            </div>
+            <div class="form-group">
+                <label for="days">출석 일수:</label>
+                <input type="number" class="form-control" id="days" required>
+            </div>
+            <button type="submit" class="btn btn-primary">계산</button>
+        </form>
+        <div id="attendanceResult" class="mt-3"></div>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/calc.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+</body>
+
+</html>

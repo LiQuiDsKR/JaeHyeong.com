@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google 태그 및 메타 태그는 유지 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NWT0T3SGHL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWT0T3SGHL');
+</script>
+<!-- ############### Google tag (gtag.js) ############### -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 내역</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/suggestions.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/darkmode.css') }}">  
+
+  <meta property="og:title" content="재형닷컴 - 건의 목록">
+  <meta property="og:description" content="작성한 건의사항과 관리자의 답변을 확인해보세요!">
+  <meta property="og:image" content="{{ og_image }}">
+</head>
+<body>
+  {% include 'common/header.html' %}
+    <h1>문의 내역</h1>
+    <div id="suggestions"></div>
+    <script>
+        fetch('/get_user_suggestions')
+            .then(response => response.json())
+            .then(data => {
+                const suggestionsDiv = document.getElementById('suggestions');
+                if (data.length === 0) {
+                    suggestionsDiv.innerHTML = '<p>제안이 없습니다.</p>';
+                } else {
+                    data.forEach(suggestion => {
+                        const suggestionElement = document.createElement('div');
+                        suggestionElement.innerHTML = `
+                          <p><strong>제안:</br></strong> ${suggestion.suggestion}</p>
+                          <p><strong>카테고리:</strong> ${suggestion.category}</p>
+                          <p><strong>작성일:</strong> ${suggestion.timestamp}</p>
+                          ${suggestion.replied ? `<p><strong>관리자 답변:</br></strong> ${suggestion.replyContent}</p>` : ''}
+                        `;
+                        suggestionsDiv.appendChild(suggestionElement);
+                    });
+                }
+            });
+    </script>
+  <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+</body>
+</html>

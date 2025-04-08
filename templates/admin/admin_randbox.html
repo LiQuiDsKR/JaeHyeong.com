@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- ############### Google tag (gtag.js) ############### -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWT0T3SGHL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWT0T3SGHL');
+  </script>
+  <!-- ############### Google tag (gtag.js) ############### -->
+   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 페이지</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/darkmode.css') }}">
+</head>
+<body>
+  {% include 'common/header.html' %}
+
+  <div class="container">
+    <h1>장착 아이템 및 확률 관리</h1>
+    <form id="admin-form">
+      <label for="box-type">상자 종류:</label>
+      <select id="box-type" class="form-control">
+        <option value="2500R">2500 루블 상자</option>
+        <option value="150">150 루나 상자</option>
+        <option value="750" selected>750 루나 상자</option>
+        <option value="Legend">패키지 전설 상자</option>
+      </select>
+    </form>
+    <table id="items-table" class="table">
+      <thead>
+        <tr>
+          <th>아이템 이름</th>
+          <th>확률</th>
+          <th>장착 여부</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button id="save-button" class="btn btn-primary">저장</button>
+    <button id="add-button" class="btn btn-secondary">추가</button>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+</body>
+</html>

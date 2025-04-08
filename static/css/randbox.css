@@ -1,0 +1,162 @@
+/* randbox.css */
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+label {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.row {
+  display: table-row;
+  background-color: #fff;
+  height: 60px;
+}
+
+#items-list {
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 100%;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.item-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cell {
+  display: table-cell;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.cell:nth-child(2) {
+  display: flex;
+  justify-content: center;  /* 수평 가운데 정렬 */
+  align-items: center;      /* 수직 가운데 정렬 */
+  width: 60px;              /* 이미지 셀의 너비를 80px로 설정 */
+  height: 60px;            /* 이미지 셀의 높이 설정 */
+  padding: 5px;               /* 셀 내부의 패딩 제거 */
+  margin: 0;                /* 셀 외부의 마진 제거 */
+  box-sizing: border-box;   /* 패딩 포함한 박스 크기 계산 */
+}
+
+.cell:last-child {
+  width: 100px;
+  text-align: right;
+}
+
+#items-list .row:last-child .cell {
+  border-bottom: none;
+}
+
+.item-checkbox {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.my-3 {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  width: 200px;
+  height: 50px;
+  padding: 0px 10px;
+  font-size: 14px;
+}
+
+.info {
+  text-align: center;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+
+.highlight {
+  color: green;
+  font-weight: bold;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+}
+
+.selection-container {
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
+  gap: 10px; /* 각 아이템 사이의 간격 */
+  align-items: flex-start;
+}
+
+.boost-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.boost-select {
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#box-type {
+  width: 200px; /* 상자 종류 선택의 너비 설정 */
+  margin-bottom: 20px; /* 상자 종류와 부스트 아이템 간 간격 설정 */
+}

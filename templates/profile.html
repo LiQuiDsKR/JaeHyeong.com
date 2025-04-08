@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- ############### Google tag (gtag.js) ############### -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWT0T3SGHL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWT0T3SGHL');
+  </script>
+  <!-- ############### Google tag (gtag.js) ############### -->
+   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>커스텀 프로필</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/darkmode.css') }}">
+  {% if is_mobile %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-mobile.css') }}">
+  {% else %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+  {% endif %}
+  
+<meta property="og:title" content="재형닷컴 - 커스텀 프로필">
+<meta property="og:description" content="마피아42 유저 프로필을 직접 꾸며보세요! 존재하는 모든 컬렉션/테두리/명패/스킨/지갑을 착용해볼 수 있습니다.">
+<meta property="og:image" content="{{ og_image }}">
+
+</head>
+
+<body>
+  {% include 'common/header.html' %}
+
+  <div class="container">
+    <h1>커스텀 프로필</h1>
+    <div class="profile-container">
+      <div class="preview-container"></div>
+      <form id="profile-form" class="my-3">
+        <div class="form-group">
+          <label for="usernameText">사용자 이름</label>
+          <input id="usernameText" type="text" class="form-control" placeholder="사용자 이름을 입력하세요">
+          <input id="username-color" type="color" value="#ffffff">
+        </div>
+        
+        <div class="form-group">
+          <label for="levelText">레벨</label>
+          <input id="levelText" type="number" class="form-control" placeholder="레벨을 입력하세요">
+        </div>
+        
+        <div class="form-group">
+          <label for="fameText">명성</label>
+          <input id="fameText" type="number" class="form-control" placeholder="명성을 입력하세요">
+        </div>
+        
+        <div class="form-group">
+          <label>승패</label>
+          <input id="winsText" type="number" class="form-control" placeholder="승리 수">
+          <input id="lossesText" type="number" class="form-control" placeholder="패배 수">
+        </div>
+        
+        <!-- RP 섹션 수정 -->
+        <div class="form-group">
+          <label>RP</label>
+          <div class="d-flex align-items-center">
+            <input id="rpText" type="number" class="form-control mr-2" placeholder="RP">
+            <input id="rankText" type="number" class="form-control mr-2" placeholder="순위">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="unrankedCheck">
+              <label class="form-check-label" for="unrankedCheck">
+                UNRANKED
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="guildText">길드 이름</label>
+          <input id="guildText" type="text" class="form-control" placeholder="길드 이름을 입력하세요">
+        </div>
+
+        <div class="form-group">
+          <label for="guildInitial">길드 이니셜</label>
+          <input id="guildInitial" type="text" class="form-control" placeholder="길드 이니셜을 입력하세요">
+          
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+              <label for="guild-initial-color" style="margin: 0;">이니셜 색상:</label>
+              <input id="guild-initial-color" type="color" value="#ffffff" title="이니셜 색상 선택">
+              
+              <label for="guild-background-color" style="margin: 0;">배경 색상:</label>
+              <input id="guild-background-color" type="color" value="#000000" title="배경 색상 선택">
+          </div>
+      </div>
+      
+        <div class="form-group">
+          <label for="bioText">자기소개</label>
+          <input id="bioText" type="text" class="form-control" placeholder="자기소개를 입력하세요">
+        </div>
+        
+        <div class="form-group">
+          <label for="heart-color">하트 색상</label>
+          <input id="heart-color" type="color" value="#ffffff">
+        </div>
+
+        <!-- 지갑 텍스트 색상 섹션 추가 -->
+        <div class="form-group">
+          <label for="wallet-text-color">지갑 텍스트 색상</label>
+          <input id="wallet-text-color" type="color" value="#ffffff">
+        </div>
+      </form>
+    </div>
+    <div id="profile-info" class="mt-4"></div>
+  </div>
+ 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+</body>
+</html>

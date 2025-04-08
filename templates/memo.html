@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- ############### Google tag (gtag.js) ############### -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWT0T3SGHL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWT0T3SGHL');
+  </script>
+  <!-- ############### Google tag (gtag.js) ############### -->
+   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>커스텀 메모장</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/darkmode.css') }}">
+  {% if is_mobile %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/memo-mobile.css') }}">
+  {% else %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/memo.css') }}">
+  {% endif %}
+  
+  <meta property="og:title" content="재형닷컴 - 커스텀 메모장">
+  <meta property="og:description" content="마피아42 메모장을 직접 꾸며보고 마음에 드는 메모장을 계획해보세요!">
+  <meta property="og:image" content="{{ og_image }}">
+
+</head>
+<body>
+  {% include 'common/header.html' %}
+
+    <!-- 미리보기 섹션 -->
+    <section id="preview">
+      <h1>커스텀 메모장</h1>
+      <br>
+      <div id="memo-preview" style="background-image: url('/static/images/MemoCustomizer/MemoBackground/gameplay_job_prediction_container_normal.webp');">
+        <!-- 직업 아이콘이 기본적으로 배치될 영역 -->
+        <div class="job-icons">
+          <!-- 아이콘 내용 -->
+      </div>
+    </section>
+    
+    <div class="button-container">
+      <button id="toggle-text-color" class="color-toggle-button">직업 이름 흰색으로 바꾸기</button>
+    </div>
+
+    <!-- 메모장 배경 선택 -->
+    <section id="memo-backgrounds">
+      <div class="background-scroll">
+        <!-- 배경 이미지를 동적으로 추가 -->
+      </div>
+    </section>
+  </div>
+
+  <!-- 직업별 스킨 선택 모달 -->
+  <div id="skin-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h5 id="modal-title">스킨 선택</h5>
+      <div class="skin-options">
+        <!-- 스킨 이미지를 동적으로 추가 -->
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='js/memo.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+</body>
+</html>

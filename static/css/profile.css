@@ -1,0 +1,262 @@
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-container {
+    width: 600px;
+    height: 700px;
+    border: 1px solid #ccc;
+    background-color: #151617;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 20px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.preview-image {
+    position: absolute;
+    object-fit: contain;
+}
+
+/* 각 카테고리별 이미지 크기 및 z-index 조정 */
+
+.preview-text.guildInitialText {
+    left: 105px;
+    top: 314px;
+    width: 24px;
+    height: 17px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 16;
+}
+
+.preview-image.guildBackground {
+    left: 105px;
+    top: 314px;
+    width: 24px;
+    height: 18px;
+    z-index: 15;
+    background-color: #000000;
+}
+
+.preview-image.rolebadge {
+    left: 480px;
+    top: 295px;
+    width: 100px;
+    height: 100px;
+    z-index: 14;
+}
+
+.preview-image.jewel {
+    left: 158px;
+    top: 123px;
+    width: 30px;
+    height: 30px;
+    z-index: 13;
+}
+.preview-image.level {
+    left: 65px;
+    top: 400px;
+    width: 25px;
+    height: 25px;
+    z-index: 12;
+}
+
+.preview-image.fame {
+    left: 270px;
+    top: 400px;
+    width: 25px;
+    height: 25px;
+    z-index: 11;
+}
+
+.preview-image.rp {
+    left: 270px;
+    top: 435px;
+    width: 25px;
+    height: 25px;
+    z-index: 10;
+}
+
+.preview-image.rate {
+    left: 65px;
+    top: 435px;
+    width: 25px;
+    height: 25px;
+    z-index: 9;
+}
+
+.preview-image.heart {
+    left: 205px;
+    top: 125px;
+    width: 35px;
+    height: 35px;
+    z-index: 8;
+}
+
+.preview-image.heartbackground {
+    left: 205px;
+    top: 125px;
+    width: 35px;
+    height: 35px;
+    z-index: 7;
+    background-color: #ffffff;
+    -webkit-mask-image: url('/static/images/ProfileCustomizer/HeartBackground/default.webp');
+    mask-image: url('/static/images/ProfileCustomizer/HeartBackground/default.webp');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.preview-image.mentor {
+    left: 205px;
+    top: 170px;
+    width: 35px;
+    height: 35px;
+    z-index: 6;
+}
+
+.preview-image.guild {
+    left: 94px;
+    top: 300px;
+    width: 46px;
+    height: 46px;
+    z-index: 5;
+}
+
+.preview-image.frame {
+    left: 70px;
+    top: 120px;
+    width: 120px;
+    height: 120px;
+    z-index: 4;
+}
+
+.preview-image.nametag {
+    left: 55px;
+    top: 225px;
+    width: 150px;
+    height: 100px;
+    z-index: 3;
+}
+
+.preview-image.collection {
+    left: 70px;
+    top: 120px;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+}
+
+.preview-image.profilebackground {
+    left: 0px;
+    top: 50px;
+    width: 600px;
+    height: 600px;
+    z-index: 1;
+}
+
+.preview-image.header {
+    left: 20px;
+    top: 27px;
+    width: 563px;
+    height: 80px;
+    z-index: 0;
+}
+
+.preview-image.skin {
+    left: 35px;
+    top: 85px;
+    width: 530px;
+    height: 285px;
+    z-index: 0;
+}
+
+.preview-text {
+    position: absolute;
+    font-size: 16px;
+    color: #ffffff;
+    z-index: 30;
+}
+
+.preview-text.usernameText {
+    left: 130px;
+    top: 261px;
+    font-size: 17px;
+    transform: translateX(-50%);
+    text-align: center;
+    
+}
+
+.preview-text.levelText {
+    left: 95px;
+    top: 400px;
+}
+
+.preview-text.fameText {
+    left: 300px;
+    top: 400px;
+}
+
+.preview-text.winlossText {
+    left: 95px;
+    top: 435px;
+}
+
+.preview-text.rpText {
+    left: 300px;
+    top: 435px;
+}
+
+.preview-text.guildText {
+    left: 145px;
+    top: 312px;
+}
+
+.preview-text.bioText {
+    left: 70px;
+    top: 490px;
+    max-width: 460px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-check {
+    margin-left: 10px;
+    z-index: 0;
+}
+
+#unrankedCheck {
+    margin-top: 0;
+}
+
+/* 카테고리 버튼과 아이템 컨테이너 조정 */
+.category-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+.item-image {
+    width: 100px;
+    height: 100px;
+    margin: 3px;
+}

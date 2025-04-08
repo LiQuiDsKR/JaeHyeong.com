@@ -1,0 +1,107 @@
+/* 기본 스타일 */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #343a40;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 제안 항목 스타일 */
+.suggestion-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.suggestion-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.suggestion-item.pinned {
+  background-color: #fffbea;
+}
+
+
+/* 제안 내용 스타일 */
+.suggestion-content h5 {
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.suggestion-content p {
+  color: #495057;
+  margin-bottom: 10px;
+  white-space: pre-line;
+}
+
+.suggestion-content small {
+  color: #6c757d;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* 액션 버튼 스타일 */
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-buttons button {
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  height: 40px;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  width: 40px;
+}
+
+.check-btn { background-color: #28a745; }
+.star-btn { background-color: #ffc107; }
+.delete-btn { background-color: #dc3545; } 
+.block-btn { background-color: #6c757d; }
+
+.action-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.starred {
+  color: #ff9307;
+}
+
+/* 관리자 답변 스타일 */
+.admin-reply {
+  background-color: #e9f7ff;
+  padding: 15px;
+  border-left: 4px solid #007bff;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: #004085;
+}
+
+/* 밴 메시지 스타일 */
+.ban-message {
+  background-color: #ffe9e9;
+  padding: 15px;
+  border-left: 4px solid red;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: #a94442;
+}

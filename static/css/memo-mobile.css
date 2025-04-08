@@ -1,0 +1,188 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  color: #000000;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 12px; /* 20px * 0.6 */
+  margin-bottom: 12px; /* 20px * 0.6 */
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.memo-customizer {
+  max-width: 294px; /* 490px * 0.6 */
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 12px; /* 20px * 0.6 */
+  border-radius: 4.8px; /* 8px * 0.6 */
+  box-shadow: 0 2.4px 4.8px rgba(255, 255, 255, 0.1); /* 0 4px 8px * 0.6 */
+}
+
+#preview {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-bottom: 12px; /* 20px * 0.6 */
+    flex-direction: column;
+    align-items: center;
+}
+
+#memo-preview {
+  width: 294px; /* 490px * 0.6 */
+  height: 450px; /* 750px * 0.6 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.job-icons {
+  position: absolute;
+  top: 72px; /* 120px * 0.6 */
+  left: 50%; /* 가로 중앙 정렬 */
+  transform: translateX(-50%); /* 가로 중앙 정렬 유지 */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 6px; /* 10px * 0.6 */
+  width: 228px; /* 380px * 0.6 */
+  height: 336px; /* 560px * 0.6 */
+  overflow-y: scroll; /* 스크롤 가능하도록 설정 */
+  justify-items: center;
+  align-items: center;
+  grid-auto-rows: 72px; /* 120px * 0.6 */
+}
+
+.job-icons div {
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.job-icons span {
+  font-size: 7.2px; /* 12px * 0.6 */
+}
+
+.job-icons::-webkit-scrollbar {
+  display: none; /* 웹킷 기반 브라우저에서 스크롤바 숨기기 */
+}
+
+.job-icon {
+  width: 36px; /* 60px * 0.6 */
+  height: 36px; /* 60px * 0.6 */
+  cursor: pointer;
+}
+
+.spacer {
+  visibility: hidden;
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+
+.job-icons .spacer {
+  width: 30px; /* 50px * 0.6 */
+  height: 30px; /* 50px * 0.6 */
+  visibility: hidden;
+}
+
+.background-scroll {
+  width:80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); /* 150px * 0.6 */
+  gap: 6px; /* 10px * 0.6 */
+  background: #333;
+  padding: 6px; /* 10px * 0.6 */
+  border-radius: 4.8px; /* 8px * 0.6 */
+  border: 0.6px solid #666; /* 1px * 0.6 */
+}
+
+.background-scroll img {
+  width: 40px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  padding: 12px; /* 20px * 0.6 */
+  border-radius: 4.8px; /* 8px * 0.6 */
+  text-align: center;
+  max-width: 360px; /* 600px * 0.6 */
+  width: 100%;
+  color: #fff;
+}
+
+.close-modal {
+  position: absolute;
+  top: 6px; /* 10px * 0.6 */
+  right: 6px; /* 10px * 0.6 */
+  cursor: pointer;
+  font-size: 14.4px; /* 24px * 0.6 */
+  color: #fff;
+}
+
+.skin-options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px; /* 10px * 0.6 */
+  margin-top: 12px; /* 20px * 0.6 */
+}
+
+.skin-options img {
+  width: 50px;
+  height:50px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1.2px solid transparent; /* 2px * 0.6 */
+  border-radius: 2.4px; /* 4px * 0.6 */
+}
+
+.skin-options img:hover {
+  border-color: #007bff;
+}
+
+.color-toggle-button {
+  padding: 10px 15px;
+  background-color: #007bff; /* 기본 배경색 */
+  color: white; /* 글씨 색상 */
+  border: none; /* 테두리 제거 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  cursor: pointer; /* 커서 포인터로 변경 */
+  transition: background-color 0.3s; /* 배경색 전환 효과 */
+  margin-right: 10px; /* 버튼 간격 */
+}
+
+.color-toggle-button:hover {
+  background-color: #0056b3; /* 호버 시 배경색 */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  margin: 120px 0 40px 0; /* 위아래 여백 추가 */
+}

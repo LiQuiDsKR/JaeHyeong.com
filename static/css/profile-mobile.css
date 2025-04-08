@@ -1,0 +1,333 @@
+
+/* 모바일 프로필 배경 CSS는 PC 크기의 60% 비율입니다*/
+h1 {
+    margin-top: 12px; /* 20px * 0.6 */
+    margin-bottom: 12px; /* 20px * 0.6 */
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-container {
+    width: 360px;
+    height: 420px;
+    border: 1px solid #ccc;
+    background-color: #151617;
+    margin-bottom: 12px;
+    position: sticky;
+    top: 12px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.preview-image {
+    position: absolute;
+    object-fit: contain;
+}
+
+.preview-text.guildInitialText {
+    left: 63px;
+    top: 188px;
+    width: 14.4px;
+    height: 10.2px;
+    font-size: 8.4px;
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 16;
+}
+
+.preview-image.guildBackground {
+    left: 63px;
+    top: 188px;
+    width: 14.4px;
+    height: 10.8px;
+    z-index: 15;
+    background-color: #000000;
+}
+
+.preview-image.rolebadge {
+    left: 288px;
+    top: 177px;
+    width: 60px;
+    height: 60px;
+    z-index: 14;
+}
+
+.preview-image.jewel {
+    left: 94.8px;
+    top: 73.8px;
+    width: 18px;
+    height: 18px;
+    z-index: 13;
+}
+.preview-image.level {
+    left: 39px;
+    top: 240px;
+    width: 15px;
+    height: 15px;
+    z-index: 12;
+}
+
+.preview-image.fame {
+    left: 162px;
+    top: 240px;
+    width: 15px;
+    height: 15px;
+    z-index: 11;
+}
+
+.preview-image.rp {
+    left: 162px;
+    top: 261px;
+    width: 15px;
+    height: 15px;
+    z-index: 10;
+}
+
+.preview-image.rate {
+    left: 39px;
+    top: 261px;
+    width: 15px;
+    height: 15px;
+    z-index: 9;
+}
+
+.preview-image.heart {
+    left: 123px;
+    top: 75px;
+    width: 21px;
+    height: 21px;
+    z-index: 8;
+}
+
+.preview-image.heartbackground {
+    left: 123px;
+    top: 75px;
+    width: 21px;
+    height: 21px;
+    z-index: 7;
+    background-color: #ffffff;
+    -webkit-mask-image: url('/static/images/ProfileCustomizer/HeartBackground/default.webp');
+    mask-image: url('/static/images/ProfileCustomizer/HeartBackground/default.webp');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.preview-image.mentor {
+    left: 123px;
+    top: 102px;
+    width: 21px;
+    height: 21px;
+    z-index: 6;
+}
+
+.preview-image.guild {
+    left: 56.4px;
+    top: 180px;
+    width: 27.6px;
+    height: 27.6px;
+    z-index: 5;
+}
+
+.preview-image.frame {
+    left: 42px;
+    top: 72px;
+    width: 72px;
+    height: 72px;
+    z-index: 4;
+}
+
+.preview-image.nametag {
+    left: 33px;
+    top: 135px;
+    width: 90px;
+    height: 60px;
+    z-index: 3;
+}
+
+.preview-image.collection {
+    left: 42px;
+    top: 72px;
+    width: 72px;
+    height: 72px;
+    z-index: 2;
+}
+
+.preview-image.profilebackground {
+    left: 0px;
+    top: 30px;
+    width: 360px;
+    height: 360px;
+    z-index: 1;
+}
+
+.preview-image.header {
+    left: 12px;
+    top: 16.2px;
+    width: 337.8px;
+    height: 48px;
+    z-index: 0;
+}
+
+.preview-image.skin {
+    left: 21px;
+    top: 51px;
+    width: 318px;
+    height: 171px;
+    z-index: 0;
+}
+
+.preview-text {
+    position: absolute;
+    font-size: 9.6px; /* 16px의 60% */
+    color: #ffffff;
+    z-index: 30;
+}
+
+.preview-text.usernameText {
+    font-family: 'Noto Sans KR', 'malgun' !important;
+    left: 78px;
+    top: 156.6px;
+    font-size: 10px;
+    transform: translateX(-50%);
+    align-content: bottom;
+    text-align: center;
+}
+
+.preview-text.levelText {
+    left: 57px;
+    top: 241.8px;
+}
+
+.preview-text.fameText {
+    left: 180px;
+    top: 240px;
+}
+
+.preview-text.winlossText {
+    left: 57px;
+    top: 261px;
+}
+
+.preview-text.rpText {
+    left: 180px;
+    top: 261px;
+}
+
+.preview-text.guildText {
+    left: 87px;
+    top: 187.2px;
+}
+
+.preview-text.bioText {
+    left: 42px;
+    top: 294px;
+    max-width: 276px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* 모바일용 폼 스타일 */
+.profile-container form {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+/* RP 섹션 조정 */
+.form-group .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group .d-flex input {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.form-check {
+    margin-left: 0;
+    margin-top: 5px;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+    margin-top: 9px;
+    margin-right: 0px;
+}
+
+.form-check-label {
+    margin-left: 90px;
+    margin-bottom: 0;
+}
+
+/* 색상 선택기 조정 */
+#username-color, #heart-color {
+    width: 40px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    margin-left: 5px;
+}
+
+/* 버튼 스타일 */
+#save-profile {
+    width: 100%;
+    max-width: 360px;
+    margin: 20px auto;
+    display: block;
+}
+
+/* 카테고리 버튼과 아이템 컨테이너 조정 */
+.category-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+.category-button {
+    flex: 0 0 auto;
+    font-size: 12px;
+    padding: 8px;
+    margin: 2px;
+}
+
+.item-container {
+    max-height: 200px;
+}
+
+.item-image {
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+}
+
+.profile-jewel {
+    width: 16px;
+    height: 16px;
+    margin-left: 3px;
+}

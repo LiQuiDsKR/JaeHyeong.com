@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- ############### Google tag (gtag.js) ############### -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWT0T3SGHL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWT0T3SGHL');
+  </script>
+  <!-- ############### Google tag (gtag.js) ############### -->
+   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 강화 시뮬레이터</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/darkmode.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/simulator.css') }}">
+  <script>
+    const imagePaths = {
+      cardFrame: '{{ url_for("static", filename="images/CardFrame") }}',
+      jobIllust: '{{ url_for("static", filename="images/JobIllust") }}',
+      jobThumbnail: '{{ url_for("static", filename="images/JobThumbnail") }}',
+      tierImage: '{{ url_for("static", filename="images/TierImage") }}'
+    };
+  </script>
+  
+  <meta property="og:title" content="재형닷컴 - 카드 강화 시뮬레이터">
+  <meta property="og:description" content="마피아42 듀얼 카드 구매와 강화를 마음껏 시뮬레이션 해보세요!.">
+  <meta property="og:image" content="{{ og_image }}">
+
+</head>
+<body>
+  {% include 'common/header.html' %}
+  <div class="container">
+    <h1>카드 시뮬레이터</h1>
+    <p>해당 페이지의 모든 데이터는 <span class="highlight">브라우저에 저장됩니다.</span> 브라우저를 종료하거나 새로고침해도 저장된 데이터는 유지됩니다.</p>
+
+    <div class="button-container">
+      <button class="btn btn-primary" id="buy-low-card">하급 카드 구매</button>
+      <button class="btn btn-primary" id="buy-low-pack">하급 카드팩 구매</button>
+      <button class="btn btn-primary" id="buy-high-card">고급 카드 구매</button>
+      <button class="btn btn-primary" id="buy-high-pack">고급 카드팩 구매</button>
+      <button class="btn btn-warning" id="upgrade-card">강화</button>
+      <button class="btn btn-success" id="apply-upgrade">강화 적용</button>
+      <button class="btn btn-danger" data-toggle="modal" data-target="#resetModal">초기화</button>
+      <select id="cards-per-row" class="form-control form-control-sm">
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </div>
+    <div id="card-container" class="card-grid"></div>
+  </div>
+
+  <!-- Reset Confirmation Modal -->
+  <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="resetModalLabel">초기화 확인</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>정말 초기화할까요?</p>
+          <p>초기화하시려면 <strong>초기화</strong>라고 작성하세요.</p>
+          <input type="text" id="reset-confirmation" class="form-control" placeholder="초기화">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+          <button type="button" class="btn btn-danger" id="confirm-reset">초기화</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 카드 정보 모달 -->
+  <div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="cardModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cardModalLabel">카드 정보</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="card-modal-content">
+          <div class="card-info">
+            <div class="job-info">
+              <img id="job-illust" src="" alt="직업 이미지">
+              <h5 id="job-name">직업 이름</h5>
+            </div>
+            <div class="ability-list">
+              <!-- 능력 목록이 여기에 표시됩니다 -->
+            </div>
+            <div class="exp-info">
+              <div class="exp-bar">
+                <div id="exp-gauge" class="exp-gauge"></div>
+              </div>
+              <p id="exp-text">경험치: 0/100</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='js/job.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/tier4_6_abilities.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/ability.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/simulator.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+</body>
+</html>

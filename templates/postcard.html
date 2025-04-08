@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>엽서 교환 시뮬레이터</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/darkmode.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/postcard.css') }}">
+</head>
+<body>
+  {% include 'common/header.html' %}
+
+  <div class="main-layout">
+    <!-- 왼쪽 정보 영역 -->
+    <div class="left-panel">
+      <div class="status-field luna-field">
+        <img src="/static/images/PostcardSimulator/ui/money/luna_icon.webp" class="status-icon">
+        <span id="luna">0</span>
+      </div>
+      <div class="status-field rubble-field">
+        <img src="/static/images/PostcardSimulator/ui/money/rubble_icon.webp" class="status-icon">
+        <span id="rubble">0</span>
+      </div>
+
+      <div class="guild-section">
+        <img id="guild-flag" src="/static/images/PostcardSimulator/ui/guild/flag/guild_flag_wood.webp" width="100">
+        <p>명성: <span id="fame">0</span></p>
+      </div>
+
+      <div class="guild-buttons">
+        <img src="/static/images/PostcardSimulator/ui/guild/buff/guild_buff_silver.webp" class="join-guild" data-type="silver">
+        <img src="/static/images/PostcardSimulator/ui/guild/buff/guild_buff_gold.webp" class="join-guild" data-type="gold">
+        <img src="/static/images/PostcardSimulator/ui/guild/buff/guild_buff_platinum.webp" class="join-guild" data-type="platinum">
+      </div>
+
+      <!-- 다음날 진행 버튼 추가 -->
+      <div class="next-day-section">
+        <button id="next-day" class="btn btn-success">다음 날로 진행</button>
+      </div>
+    </div>
+
+    <!-- 오른쪽 상점 + 우체통 영역 -->
+    <div class="right-panel">
+      <div class="store-grid">
+        <div class="store-item buy-postcard" data-type="normal">
+          <div class="store-background">
+            <img src="/static/images/PostcardSimulator/postcard/일반 엽서.webp" class="postcard-image">
+            <div class="postcard-name">일반 엽서</div>
+            <div class="price-field">
+              <img src="/static/images/PostcardSimulator/ui/money/rubble_icon.webp" class="price-icon">
+              <span>2500</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-item buy-postcard" data-type="premium">
+          <div class="store-background">
+            <img src="/static/images/PostcardSimulator/postcard/고급 엽서.webp" class="postcard-image">
+            <div class="postcard-name">고급 엽서</div>
+            <div class="price-field">
+              <img src="/static/images/PostcardSimulator/ui/money/luna_icon.webp" class="price-icon">
+              <span>10</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-item buy-postcard" data-type="random">
+          <div class="store-background">
+            <img src="/static/images/PostcardSimulator/postcard/주사위 엽서.webp" class="postcard-image">
+            <div class="postcard-name">주사위 엽서</div>
+            <div class="price-field">
+              <img src="/static/images/PostcardSimulator/ui/money/luna_icon.webp" class="price-icon">
+              <span>50</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-item buy-postcard" data-type="special">
+          <div class="store-background">
+            <img src="/static/images/PostcardSimulator/postcard/깜짝 엽서.webp" class="postcard-image">
+            <div class="postcard-name">깜짝 엽서</div>
+            <div class="price-field">
+              <img src="/static/images/PostcardSimulator/ui/money/rubble_icon.webp" class="price-icon">
+              <span>42000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 우체통 -->
+      <div class="mailbox-grid" id="mailbox-grid"></div>
+
+      <!-- 우체통 하단 -->
+      <div class="expand-section">
+        <span id="mailbox-count">0/42</span>
+        <button class="btn btn-info" id="expand-button">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업창 -->
+  <div id="popup">
+    <p>우체통을 증축할까요?</p>
+    <p>비용: <span id="expand-cost"></span> 루블</p>
+    <button id="confirm-expand" class="btn btn-success">Y</button>
+    <button id="cancel-expand" class="btn btn-danger">N</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename='js/fameProbability.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/postcard.js') }}"></script>
+</body>
+</html>

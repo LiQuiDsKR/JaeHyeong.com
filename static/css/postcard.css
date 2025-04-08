@@ -1,0 +1,195 @@
+
+.main-layout {
+    display: flex;
+    margin-top: 30px;
+    padding: 20px;
+    gap: 30px;
+}
+
+.left-panel {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-panel {
+    flex-grow: 1;
+}
+
+.next-day-section {
+    margin-top: 30px;
+}
+
+.status-field {
+    position: relative;
+    width: 180px;
+    height: 42px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  .luna-field {
+    background-image: url('/static/images/PostcardSimulator/ui/money/luna_field.webp');
+  }
+  
+  .rubble-field {
+    background-image: url('/static/images/PostcardSimulator/ui/money/rubble_field.webp');
+  }
+  
+  .status-icon {
+    position: absolute;
+    left: 5px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .guild-section {
+    margin-top: 20px;
+  }
+  
+  .guild-buttons img {
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  /* --- 엽서 구매 상점 스타일 --- */
+  .store-grid {
+    display: flex; /* <-- flex로 변경 */
+    flex-wrap: wrap; /* 줄바꿈 허용 */
+    gap: 10px; /* 버튼끼리 살짝 간격 */
+    margin-top: 30px;
+  }  
+  
+  .store-item {
+    width: 100px;   /* 작게 조정 */
+    height: 100px;  /* 정사각형 */
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    background: url('/static/images/PostcardSimulator/ui/slot_background.webp') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .store-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .store-background {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .postcard-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  .postcard-name {
+    font-weight: bold;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    margin-top: -5px;
+  }
+  
+  .price-field {
+    width: 80px;   /* 카드 안 가격표 가로 */
+    height: 24px;  /* 높이 딱 맞추기 */
+    background: url('/static/images/PostcardSimulator/ui/button_default.webp') no-repeat center/contain; /* contain 사용 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 10px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .price-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+  }  
+  
+  /* --- 우체통 슬롯 --- */
+  .mailbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80px);
+    gap: 10px;
+    justify-content: start;
+    margin-top: 30px;
+  }
+  
+  
+  .mailbox-card {
+    width: 80px;
+    height: 80px;
+    background: url('/static/images/PostcardSimulator/ui/slot_background.webp') no-repeat center/cover;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    padding: 5px;
+  }
+  
+  .mailbox-card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 3px;
+  }
+  
+  .mailbox-card .fame-duration {
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  
+  .expand-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .expand-section button {
+    margin-left: 10px;
+  }
+  
+  #popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 9999;
+    text-align: center;
+  }
+  
